@@ -58,20 +58,28 @@ namespace BinarySearchTree
         public bool SearchForNode(int num)
         {
             Node current = root;
-            while(current != null)
+            while(true)
             {
                 if (num == current.data)
                 {
                     Console.WriteLine("Woooo Andrew's Awesome Binary Search Tree has that number!");
                     return true;
                 }
+                else if (num < current.data && current.left != null)
+                {
+                    current = current.left;                  
+                }
+                else if(num > current.data && current.right != null)
+                {
+                    current = current.right;
+                }
                 else
                 {
-                    Console.WriteLine("Nope, sorry. That number didn't make the Binary Search Tree...... yet?");
+                    Console.WriteLine("It's not here.... oops.");
                     return false;
                 }
             }
-                     
+                      
         }
     }
 }
